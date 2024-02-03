@@ -3,3 +3,10 @@
 
 # Ignore files ending with = (correlation ids)
 *=
+
+# Ignore PyCharm related files
+.idea
+*.iml
+*.ipr
+*.iws
+*.pyc
