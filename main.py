@@ -1,11 +1,12 @@
+import os
+
 import urllib3
 from dotenv import load_dotenv
 from pydantic import SecretStr
 
 from client.direct_client import DirectClient
-import os
-
 from client.dnr_client import DNRClient
+from schemas.enums import DNRS3SearchScopeLevel
 from schemas.schemas import LoginInfo, BucketInfo
 
 load_dotenv()
@@ -42,4 +43,6 @@ if __name__ == "__main__":
     dnr_client.run_dnr_simulation(
         correlation_id="YOUR CORRELATION ID HERE",
         skip_download=True,
+        prefix="2024-01-01",  # A prefix if you already know which date you are searching
+        search_scope=DNRS3SearchScopeLevel.day,  # A search scope for the current, year, month, or day
     )

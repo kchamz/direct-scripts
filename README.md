@@ -85,6 +85,8 @@ To download files
 ```
 dnr_client.download_file(
     correlation_id="YOUR CORRELATION ID HERE",
+    prefix="2024-01-01",  # A prefix if you already know which date you are searching
+    search_scope=DNRS3SearchScopeLevel.day,  # A search scope for the current, year, month, or day
 )
 ```
 
@@ -92,5 +94,12 @@ To run a DNR simulation
 ```
 dnr_client.run_dnr_simulation(
     correlation_id="YOUR CORRELATION ID HERE",
+    prefix="2024-01-01",  # A prefix if you already know which date you are searching
+    search_scope=DNRS3SearchScopeLevel.day,  # A search scope for the current, year, month, or day
 )
 ```
+
+Explaining some parameters:
+ - **prefix**: If you already know the prefix of the files (the date of the correlation ID).
+ - **search_scope**: If you don't know the prefix of the files, the files were not uploaded through CloudDNR, and you just want to scope down your search to the current year, year & month, year & month & day.
+ - **skip_download**: If the files are already downloaded are their designated path (the path that the script determines).

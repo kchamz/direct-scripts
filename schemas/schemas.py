@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 
 from pydantic import BaseModel, SecretStr
 
@@ -25,6 +25,6 @@ class BucketInfo(BaseModel):
 
 class DNRFileNames(BaseModel):
     request: str
-    raw_screen_usage: str
+    raw_screen_usage: Optional[str] = None
     solution_values: str
     mps: str
