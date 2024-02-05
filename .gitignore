@@ -10,3 +10,7 @@
 *.ipr
 *.iws
 *.pyc
+
+# Ignore pycache
+__pycache__/
+*/__pycache__/
